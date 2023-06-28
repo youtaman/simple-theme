@@ -1,0 +1,15 @@
+---
+import Layout from "../_layout.astro";
+import type { CollectionEntry } from "astro:content";
+import setting from "@/setting.json";
+
+type Props = CollectionEntry<"common">;
+const props = Astro.props;
+---
+
+<Layout
+  title={props.data.title || setting.site.title}
+  description={props.data.description || setting.site.description}
+>
+  <slot />
+</Layout>

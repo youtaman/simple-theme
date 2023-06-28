@@ -1,0 +1,19 @@
+---
+import Index from "@/theme/common/_index.astro";
+import About from "@/theme/common/_about.astro";
+import Layout from "@/theme/_layout.astro";
+import type { CollectionEntry } from "astro:content";
+
+type Props = CollectionEntry<"common">;
+const page = Astro.props;
+
+const Components: Record<string, any> = {
+  about: About,
+};
+
+const Component = Components[page.slug] || Layout;
+---
+
+<Component {...page}>
+  <slot />
+</Component>
